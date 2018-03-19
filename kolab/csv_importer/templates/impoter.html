@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Importer</title>
+</head>
+<body>
+    <form action="{% url 'csv_importer' %}" method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form }}
+        {{ form.errors }}
+        <input type="submit" value="Import File">
+    </form>
+</body>
+</html>
