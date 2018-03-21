@@ -5,6 +5,6 @@ from csv_importer import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.main, name='csv_importer'),
+    url('admin/', admin.site.urls),
+    url('', views.main, name='csv_importer'),
 ]

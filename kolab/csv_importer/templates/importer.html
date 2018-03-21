@@ -7,9 +7,14 @@
 <body>
     <form action="{% url 'csv_importer' %}" method="POST" enctype='multipart/form-data'>
         {% csrf_token %}
-        {{ form }}
-        {{ form.errors }}
+        <input type="file" name="csv_file" id="csv_file">
         <input type="submit" value="Import File">
-    </form>
+     </form>
+       
+        {% if header and imported %}
+            <p>Campos Encontrados: {{ header|join:", "}}</p>
+            <p>Linhas importadas: {{ imported }}</p>
+        {% endif %}
+
 </body>
 </html>

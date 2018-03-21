@@ -5,6 +5,7 @@ from django.db import models
 
 
 class CSVData(models.Model):
+    formulario = models.CharField(max_length=250, null=True, blank=True)
 
     idade = models.CharField(max_length=250, null=True, blank=True)
     sexo = models.CharField(max_length=250, null=True, blank=True)
@@ -72,15 +73,9 @@ class CSVData(models.Model):
     realizacao_pessoal2 = models.CharField(max_length=250, null=True, blank=True)
     valores5 = models.CharField(max_length=250, null=True, blank=True)
 
-    raw_file = models.FileField(upload_to='csv/')
-
     class Meta:
         verbose_name = 'Imported CSV Data'
         verbose_name_plural = 'Imported CSVs Data'
 
     def __str__(self):
-        return self.pk
-
-    def save(self, *args, **kwargs):
-        # Parse the CSV Data here
-        super(CSVData, self).save(*args, **kwargs)
+        return self.formulario
